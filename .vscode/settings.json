@@ -12,5 +12,5 @@
   "C_Cpp_Runner.excludeSearch": [],
   "C_Cpp_Runner.enableWarnings": true,
   "C_Cpp_Runner.warningsAsError": false,
-  "C_Cpp_Runner.cCompilerPath": "TDM-GCC-64\bingcc.exe"
+  "C_Cpp_Runner.cCompilerPath": "c:\\gcc\bin\\gcc.exe"
 }

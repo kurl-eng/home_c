@@ -4,7 +4,7 @@
 		{
 			"type": "cppbuild",
 			"label": "C/C++: gcc.exe сборка активного файла",
-			"command": "C:\\TDM-GCC-64\\bin\\gcc.exe",
+			"command": "C:\\gcc\\bin\\gcc.exe",
 			"args": [
 				"-g",
 				"${file}",
@@ -21,7 +21,7 @@
 				"kind": "build",
 				"isDefault": true
 			},
-			"detail": "компилятор: C:\\TDM-GCC-64\\bin\\gcc.exe"
+			"detail": "компилятор: C:\\gcc\\bin\\gcc.exe"
 		}
 	]
 }
