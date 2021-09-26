@@ -1,20 +1,22 @@
 #include <stdio.h>
+#include <math.h>
 
-main()
+int main(void)
 {
-    int r, lc, sc, vc;
-    int pi = 3.1415;
-    printf("Enter radius of cirlce and press Enter\n");
-        scanf(r);
-
-    lc = 2 * pi * r;
-    sc = pi * r * r;
-    vc = 4/3 * pi * r * r * r;
+    int r;                                        //Обьявление переменной ввода
+    r = ++r;
+    float                                         //Обьявление переменных вывода
+    lc = 2*M_PI*r,
+    sc = M_PI*r*r,
+    vc = (4/3)*(M_PI*r*r*r);
     
-    printf("Within radius = \n", r ,"\n");
-    printf("\n""long of circle is ", lc,"\n");
-    printf("\n""square of cirlce is ", sc,"\n");
-    printf("\n""volume of circle is ", vc,"\n");
-    printf("\n");
+    printf("Input integer radius:\n");           //Инструкция ввода переменной
+    
+    scanf("%d", &r);                             //Ввод переменной радиуса окружности
+    
+    printf("Длина окружности равна %f\n", lc);  //Вывод на экран переменных
+    printf("Площадь круга равна %f\n", sc); 
+    printf("Обьем шара равен %f\n", vc);
+
     return 0;
 }
