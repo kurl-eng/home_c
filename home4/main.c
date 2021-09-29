@@ -1,32 +1,25 @@
-/* Всем доброго вечера!
-Как и обещал - прикрепляю домашнее задание:
+#include <stdio.h>
+#include <stdint.h>
 
-Ввод: 2 целых числа(scanf)
+int main()
+{
+    uint16_t num, val;
+    int shift;
 
-1 - беззнаковое. Исходное число введенное пользователем для операций над ним
-2 - знаковое. Величина сдвига.
+    printf("Enter number and shift value\n");
 
-Если второе число больше нуля, то выполнить сдвиг ВПРАВО первого числа на количество разрядов указанных во втором числе.
-Если второе число меньше нуля, то выполнить сдвиг ВЛЕВО первого числа на количество разрядов указанных во втором числе. .
-Если второе число равно нулю, выдать сообщение об этом.
+    scanf("%x%d", &num, &shift);
 
-После получения значений переменных, программа должна вывести в шестнадцатеричном представлении значение переменной 1 и результата
+    if (shift > 0) {
+        val = num >> shift;
+        printf("Input: %x shift right: %d\n Result: %x\n", num, shift, val);
+    } else if (shift < 0) { 
+        val = num << shift;
+        printf("Input: %x shift left: %d\n Result: %x\n", num, shift, val);
+    } else {
+        printf("Input: %x shift: %d\n", num, shift);
+        printf("Zero shift is not defined");
+    }
 
-Пример:
-
-./main
-Enter number and shift value:
-55 -5
-Input: 0x37 shift left 5
-Result: 0x6E0
-
-./main
-Enter number and shift value:
-55 3
-Input: 0x37 shift right 3
-Result: 0x6
-
-./main
-Enter number and shift value:
-55 0
-Zero shift is not defined */
+    return 0;
+}

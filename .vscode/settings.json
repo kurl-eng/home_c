@@ -14,5 +14,6 @@
   "C_Cpp_Runner.warningsAsError": false,
   "C_Cpp_Runner.cCompilerPath": "c:\\gcc\bin\\gcc.exe",
   "synthwave84.brightness": 0.7,
+  "powershell.buttons.showPanelMovementButtons": true,
   
 }
