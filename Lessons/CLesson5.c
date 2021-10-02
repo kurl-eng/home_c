@@ -19,9 +19,22 @@ void print_n_squares(int N);
 void print_n_2k_for(int N);
 void print_n_2k_while(int N);
 void print_natur_polindrom(int arg);
+void print_n_fibonaci(int arg);
 bool is_prime(int arg);
 
-//int delim = 20; 
+/* goto skip; //better not used it
+printf("What you skipping");
+skip;
+*/
+
+//определение перечислимого типа, 
+//содержащего единственнуюконстанту N, имеющую значение 100
+enum { N = 100 }
+
+/* Переменные и идентификаторы пишутся в camelCase.
+   Константы пишутся в SCREAMING_CASE */
+
+//int delim = 20;
 //глбальная переменная лучше писать так g_delim или global_delim
 // const int CONST_VAL = 10;
 
@@ -40,18 +53,18 @@ bool is_prime(int arg);
 }
 */
 
-int main(void)
+main(void) //int
 {
     int from_user = get_user_input();
     
+
     /*printf("number %d is prime %s\n", from_user,
      is_prime(from_user) ? "TRUE" : "FALSE");
     */
 
-    print_n_2k_for(from_user);
-    /*
+/*  print_n_fibonaci(from_user);
     print_natur_polindrom(from_user); 
-    
+    print_n_2k_for(from_user);
     print_n_2k_while(from_user);
     print_n_squares(from_user);
     print_digits_summ(from_user);
@@ -121,8 +134,6 @@ int main(void)
     return 0;
 }
 
-
-
 bool is_prime(int arg)
 {    
 
@@ -154,6 +165,23 @@ bool is_prime(int arg)
 
     return prime;
     */
+}
+
+void print_n_fibonaci(int arg)
+{
+    int f1, f2 = 1, lf, i;
+
+    if (arg == 1) {
+        printf("0 1\n");
+    }   else if (arg !=0 ) {
+        printf("0 1 1 ");
+        for (i = 1; i < arg; i++) {
+            lf = f1 + f2;
+            f1 = f2;
+            f2 = lf;
+            printf("%d ", f2);
+        }
+    }
 }
 
 void print_natur_polindrom(int arg)
