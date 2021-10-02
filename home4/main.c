@@ -3,7 +3,7 @@
 
 int main()
 {
-    unsigned int num = 0, val = 0;
+    unsigned char num = 0, val = 0;
     int shift = 0;
 
     printf("Enter number and shift value\n");
