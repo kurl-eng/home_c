@@ -4,17 +4,18 @@
 int get_string_summary(void)
 {
     char sign;
-    int summary = 0;
-    while ((sign = getchar()) != '\n')
-    {
-        if (sign >= '0' && sign <= 'z')
-        {
-            summary *= 10;
-            summary = sign - '0';
-            
+    int
+        counter_numbers = 0,
+        counter_high_letters = 0,
+        counter_low_letters = 0,
+        counter_spaces = 0;
+
+    while ((sign = getchar()) != '\n'){
+        if (sign == ' ') {
+            counter_spaces += counter_spaces;
         }
+    printf("Summary %d symbols\n", counter_spaces);
     }
-    printf("Summary %d symbols\n", summary);
 }
 
 int main(void)
