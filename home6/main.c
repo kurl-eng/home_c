@@ -22,8 +22,13 @@ void spaces_percent(void);
 int main(void)
 {
     print_title();
-    int value = 0;
-    value = get_int();
+    
+    //int value = 0;
+    //value = get_string();
+    
+    //print_count();
+    lenght_absolute();
+    
 
     return 0;
 }
@@ -73,17 +78,17 @@ void lenght_absolute(void)
     char sign;
     int sum = 0;
 
-    while ((c = getchar()) != '\n')
+    while ((sign = getchar()) != '\n')
     {
-        if (c >= '0' && c <= '9')
+        if (sign >= 'a' && sign <= '0')
         {
-            sum += c - '0';
+            sum += sign - '0';
         }
     }
-    return sum;
+    printf("Total lenght of string is: %d", &sum, " symbols");
 }
 
-int get_string(void)
+/* int get_string(void)
 {
     char sign;
     int number = 0;
@@ -98,15 +103,17 @@ int get_string(void)
     }
     return number;
 }
+*/
 
-void print_count(void)
+/*void print_count(void)
 {
-    printf("");
+    printf("Длинна сообщения: %d", lenght_absolute, " символов");
     printf("");
     printf("");
 }
+*/
 
 void print_title(void)
 {
-    printf("Enter text with digits to count values of it: \n");
+    printf("Enter text with digits to count symbols of it: \n");
 }
