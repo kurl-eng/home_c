@@ -4,12 +4,12 @@
 		{
 			"type": "cppbuild",
 			"label": "C/C++: gcc.exe сборка активного файла",
-			"command": "C:\\gcc\\bin\\gcc.exe",
+			"command": "/usr/bin/gcc",
 			"args": [
 				"-g",
 				"${file}",
 				"-o",
-				"${fileDirname}\\${fileBasenameNoExtension}.exe"
+				"${fileDirname}\\${fileBasenameNoExtension}"
 			],
 			"options": {
 				"cwd": "${fileDirname}"
@@ -21,7 +21,7 @@
 				"kind": "build",
 				"isDefault": true
 			},
-			"detail": "компилятор: C:\\gcc\\bin\\gcc.exe"
+			"detail": "компилятор: /usr/bin/gcc"
 		}
 	]
 }
