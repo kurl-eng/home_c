@@ -8,20 +8,26 @@ int get_user_input(void);
 //вынос функции условий вывода переменной ввода
 bool is_prime(int arg);
 
-//вынос функции вывода значения основной функции
-//int user_output(is_prime);
-
 //объявление главной функции тела программы
 int main(void)
 {
     //локальная переменная оператора ввода главной функции
     //присваивает значение функции переменной
     int user_input = get_user_input();
-    //int user_output = is_prime(int arg);
 
     //функция вывода услвоий переменной is_prime
     printf("Number %d is prime %s\n", user_input, is_prime(user_input) ? "TRUE" : "FALSE");
-    
+
+    int counter = 2;
+    while(user_input){
+        if (is_prime(counter)){
+            (user_input % counter) == 0;
+            user_input --;
+            printf("%d ", counter);
+        }
+        counter ++;
+    }
+
 }
 
 //функция логического оператора вычисляет значение arg 
@@ -42,11 +48,6 @@ bool is_prime(int arg){
     //возврат переменной prime функции со значением arg
     return prime;
 }
-
-/*int user_output(is_prime)
-{
-    printf("Number %d is prime %s\n", get_user_input, is_prime(get_user_input) ? "TRUE" : "FALSE");
-}*/
 
 //функция оператора ввода получает данные от пользователя
 int get_user_input(void)

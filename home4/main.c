@@ -14,7 +14,7 @@ int main()
         val = num << shift;
         printf("Input: %x shift right: %d\n Result: %x\n", num, shift, val);
     } else if (shift < 0) { 
-        val = num >> shift;
+        val = num >> (~shift + 1);
         printf("Input: %x shift left: %d\n Result: %x\n", num, shift, val);
     } else {
         printf("Input: %x shift: %d\n", num, shift);
