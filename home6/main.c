@@ -1,119 +1,46 @@
 #include <stdio.h>
+#include <stdbool.h>
 
 void print_title(void);
-void print_count(void);
 
-int get_string(void);
+char get_string(char sign);
 
-void lenght_absolute(void);
-
-void digits_absolute(void);
-void digits_percent(void);
-
-void high_absolute(void);
-void high_percent(void);
-
-void low_absolute(void);
-void low_percent(void);
-
-void spaces_absolute(void);
-void spaces_percent(void);
+void count_numbers(void);
 
 int main(void)
 {
     print_title();
     
-    //int value = 0;
-    //value = get_string();
-    
-    //print_count();
-    lenght_absolute();
-    
 
+    count_numbers();
+
+    printf("\n");
     return 0;
 }
 
-void spaces_percent(void)
+void count_numbers(void)
 {
-
-}
-
-void spaces_absolute(void)
-{
-
-}
-
-void low_percent(void)
-{
-
-}
-
-void low_absolute(void)
-{
-
-}
-
-void high_percent(void)
-{
-
-}
-
-void high_absolute(void)
-{
-
-}
-
-void digits_percent(void)
-{
-
-}
-
-void digits_absolute(void)
-{
-
-}
-
-void lenght_absolute(void)
-{
-    char sign;
-    int sum = 0;
-
-    while ((sign = getchar()) != '\n')
-    {
-        if (sign >= 'a' && sign <= '0')
-        {
-            sum += sign - '0';
+    char number;
+    int count = 0;
+    while ((number = getchar()) != '\n') {
+        if (number >= '0' && number <= '9') {
+            putchar(number);
+            count++;
         }
     }
-    printf("Total lenght of string is: %d", &sum, " symbols");
+    printf("\nnumber of digits in string %c is : %d\n", number, count);
 }
 
-/* int get_string(void)
+char get_string(char sign)
 {
-    char sign;
-    int number = 0;
-
     while ((sign = getchar()) != '\n')
     {
-        if (sign >= '0' && sign <= '9')
-        {
-            number *= 10;
-            number += sign - '0';
-        }
+        putchar(sign);
     }
-    return number;
+    return sign;
 }
-*/
-
-/*void print_count(void)
-{
-    printf("Длинна сообщения: %d", lenght_absolute, " символов");
-    printf("");
-    printf("");
-}
-*/
 
 void print_title(void)
 {
-    printf("Enter text with digits to count symbols of it: \n");
+    printf("Enter text with digits to count symbols of it : \n");
 }
