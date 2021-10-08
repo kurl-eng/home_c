@@ -15,7 +15,7 @@ void print_digits_num(int arg);
 void print_digits_summ(int arg);
 void print_digits_mult(int arg);
 void print_natur_dividers(int arg);
-void print_n_squares(int N);
+//void print_n_squares(int N);
 void print_n_2k_for(int N);
 void print_n_2k_while(int N);
 void print_natur_polindrom(int arg);
@@ -62,7 +62,7 @@ main(void) //int
      is_prime(from_user) ? "TRUE" : "FALSE");
     */
 
-/*  print_n_fibonaci(from_user);
+    /*  print_n_fibonaci(from_user);
     print_natur_polindrom(from_user); 
     print_n_2k_for(from_user);
     print_n_2k_while(from_user);
@@ -71,9 +71,10 @@ main(void) //int
     print_digits_num(from_user);
     print_digits_mult(from_user);
     print_natur_dividers(from_user);
-    //menu_ifelse(from_user);
-    //menu_switch(from_user);
-    */
+        */
+    menu_ifelse(from_user);
+    menu_switch(from_user);
+
 
     /*  int n, count;
     printf("Input number:\n");
@@ -225,19 +226,21 @@ void print_n_2k_for(int N)
     
 }
 
+/*
 void print_n_squares(int N) 
 {
     for (int i = 1; i <= N; i++) {
         
         int s = pow(i, 2);
-        printf("%d ", s);
+        printf("%d ", s);*/
         //printf("%d ", i*i);
         
         /*int s = pow(N, i);
         printf("%d ", s);*/
-    }
+/*    }
     printf("\n");
 }
+*/
 
 void print_natur_dividers(int arg)
 {
