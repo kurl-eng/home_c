@@ -15,7 +15,7 @@ void print_digits_num(int arg);
 void print_digits_summ(int arg);
 void print_digits_mult(int arg);
 void print_natur_dividers(int arg);
-//void print_n_squares(int N);
+void print_n_squares(int N);
 void print_n_2k_for(int N);
 void print_n_2k_while(int N);
 void print_natur_polindrom(int arg);

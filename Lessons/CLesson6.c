@@ -2,26 +2,16 @@
 
 //создаем заголовок файла путем объявления прототипов функций
 void str_replace_to_upper(void);
-
 void sum_of_dig (void);
-
 void str_as_num(void);
-
 void remove_spaces(void);
-
 unsigned int get_uint(void);
-
 //для возврата значения void >> insigned int
 void increment(unsigned int arg);
-
 int my_abs(int arg);
-
 unsigned int my_pow_u32(unsigned int arg, unsigned int p);
-
 unsigned int is_pow_of_3(unsigned int arg);
-
 unsigned int get_max_dig(unsigned int arg);
-
 unsigned int get_even_num(unsigned int arg);
 
 //посимвольное управление потоком В/В
