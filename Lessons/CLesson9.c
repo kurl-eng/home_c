@@ -103,9 +103,30 @@ void print_array_float(const float *array, int N);
 int int_module(int arg);
 int get_mod_max_amount(int *array, int N);
 
+/*2.1 Реализовать строковую функцию strlen(const char *cs)*/
 //напишем функцию аналогичную функии strlen библиотеки string.h
 int my_strlen(const char *str);
 int get_string(char *str);
+
+/* 2.2 Реализовать строковую функцию strcpy(char *dst, const char *src)
+Копирования строки src (включая '\0') в строку dst . Функция возвращает
+указатель на первый символ строки dst */
+char *my_strcpy(char *dst, const char *src);
+
+/*2.3 Реализовать строковую функцию strcmp(const char *cs, const char *ct)
+Функция сравнивает в лексикографическом порядке строку cs со строкой ct.
+Если строка cs меньше строки ct, возвращается значение < 0, если строка cs
+больше строки ct, возвращается значение > 0, в случае равенства строк
+возвращается значение 0. */
+int my_strcmp(const char *cs, const char *ct);
+
+/*2.4 Посчитать количество слов в тексте, слова разделены одним или несколькими
+пробелами. */
+int get_words_count(const char *text);
+
+/*2.5 Реализовать функцию, которая возвращает сумму цифр в переданной ей
+строке. str_sum_digits(const char *cs) */
+int str_sum_digits(const char *cs);
 
 int main(void)
 {
@@ -160,10 +181,20 @@ int main(void)
     //char *str = "1234567890";
 
     char str[100] = { 0 };
+    //char str1[100] = { 0 };
 
-    int count = get_string(str);
-    printf("sizeof %lu strlen %d\n", sizeof(str), my_strlen(str));
-    printf("entered string : %s\n", str);
+    get_string(str);
+    //get_string(str1);
+    //printf("my_strcmp result %d", my_strcmp(str1, str));
+    //printf("words count of string is %d", get_words_count(str));
+    printf("str_sum_digits is %d", str_sum_digits(str));
+
+    //int count = get_string(str);
+    
+    //printf("sizeof %lu strlen %d\n", sizeof(str), my_strlen(str));
+    //printf("entered string : %s\n", str);
+    //my_strcpy(str1, str);
+    //printf("entered string : %s\n", str1);
 
     /*scanf("%s", str);
     printf("%s\n", str);
@@ -172,6 +203,54 @@ int main(void)
 
     printf("\n");
     return 0;
+}
+
+int str_sum_digits(const char *cs)
+{
+    int tmp = 0;
+
+    while (*cs) {
+        if (*cs >= '0' && *cs <= '9') {
+            tmp += *cs - '0';
+        }
+        cs++;
+    }
+    return tmp;
+}
+
+int get_words_count(const char *text)
+{
+    int count = 1;
+    
+    while (*text++) {
+        if (*text == ' ') {
+            count++;
+        }
+    }
+    return count;
+}
+
+int my_strcmp(const char *cs, const char *ct)
+{
+    int tmp1 = 0, tmp2 = 0;
+
+    while(*cs++) {
+        tmp2 += *cs;
+    }
+
+    while(*ct++) {
+        tmp1 += *ct;
+    }
+
+    return tmp2 - tmp1;
+}
+
+char *my_strcpy(char *dst, const char *src)
+{
+    char *tmp = dst;
+    while (*dst++ = *src++);
+
+    return tmp;
 }
 
 int get_string(char *str)
