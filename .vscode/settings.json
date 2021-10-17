@@ -12,6 +12,5 @@
   "C_Cpp_Runner.excludeSearch": [],
   "C_Cpp_Runner.enableWarnings": true,
   "C_Cpp_Runner.warningsAsError": false,
-  "C_Cpp_Runner.cCompilerPath": "/usr/bin/gcc",
-  "powershell.buttons.showPanelMovementButtons": true
+  "C_Cpp_Runner.cCompilerPath": "/usr/bin/gcc"
 }
