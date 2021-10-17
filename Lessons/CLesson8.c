@@ -202,8 +202,8 @@ void print_max_freq_dig(void)
 
 void swap_min_max(int array[], int N)
 {
-    int min, max = array[0];
-    int min_index, max_index = 0;
+    int min = array[0], max = array[0];
+    int min_index = 0, max_index = 0;
     int tmp;
 
     for (int i = 0; i < N; i++) {
