@@ -43,11 +43,8 @@ float number_container(void)
         for (range; range < digit_index; range++) {
             number_array[digit_index++];
             putchar(number_array[digit_index]);
-            //putchar(string);
         }
-        //putchar(string);
     }
-    putchar(string);
 }
 
 bool is_number(char sign)
@@ -59,6 +56,6 @@ char get_input(char *string)
 {
     printf("enter math expression to calculate it : \n");
     while ((*string = getchar()) != '\n')
-        //putchar(*string);
+        putchar(*string);
         return *string;
 }
