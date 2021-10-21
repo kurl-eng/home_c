@@ -4,6 +4,17 @@
 #include <string.h>
 #include <math.h>
 
+bool get_user_input_int(int *a, int *b)
+{
+    int retcode;
+    retcode = scanf("%d%d", a, b);
+    if (retcode == 2) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 char get_input(char string[], int range);
 //входной массив выражения
 char enter_array(char string[], int range);
@@ -30,9 +41,71 @@ char get_user_input(char string);
 float sum_of_dig(float sum);
 
 float str_as_expr(float string);
+void remove_spaces(void);
+
+unsigned int is_pow_of_3(unsigned int arg)
+{
+    unsigned int base = 3;
+    while (base <= arg) {
+        if (base == arg) {
+            return 1;
+        }
+        base *= 3;
+    }
+    return 0;
+}
+
+int my_abs(int arg)
+{
+    return (arg < 0) ? - arg : arg;
+}
+
+unsigned int my_pow_u32(unsigned int arg, unsigned int p)
+{
+    unsigned int result = 1;
+    for (int i = p; i > 0; i--)
+    //result *= arg;
+    return result;
+}
+
+unsigned int get_max_digit(unsigned int arg)
+{
+    unsigned int max = arg % 10;
+
+    while (arg) {
+        if ((arg % 10) > max)
+            max = arg % 10;
+            arg /= 10;
+    }
+    return max;
+}
+
+/*получаем со стандартного потока ввода через getchar 
+unsigned int*/
+unsigned int get_uint(void);
+unsigned int increment(unsigned int arg)
+{
+    //unsigned int arg = main:test;
+    //значение снаружи передано внутрь для вычисления и возврата
+    arg += arg;
+    printf("Increment : %u\n", arg);
+    return arg;
+}
+
+unsigned int digit_summary(unsigned int n)
+{
+    if (n <= 9)
+    {
+        return n;
+    }
+
+    return (n % 10) + digit_summary(n / 10);
+}
 
 int main(void)
 {
+
+    
     /*
     int from_user = get_user_input();
     printf("number %d is prime %s\n", from_user, is_prime(from_user) ? "TRUE" : "FALSE");
@@ -65,17 +138,76 @@ int main(void)
     printf("func result %d\n", from_user);
     */
 
+    /*
     int range;
     char string, expr;
     expr = get_user_input(string);
+    */
 
     /*while ((c = getchar()) != '\n') {
     putchar(c);
     }*/
+    
+    /*
     str_as_expr(expr);
     sum_of_dig(expr);
+    */
+/*
+   int a = 5, b = 10;
+
+   bool ret = get_user_input_int(&a, &b);
+   if (ret == false) {
+       printf("Error\n");
+       return -1;
+   }
+   printf("%d %d", a, b);
+   */
+    unsigned int arg;
+    scanf("%u", &arg);
+    printf("result summ = %u", digit_summary(arg));
+    /*
+    unsigned int digit = 0;
+    digit = get_uint();
+    //делаем ретерн в функции, помечаем тип возвращаемого значение
+    // и присваиваем функцию переменной, без использования адреса
+    //digit = increment(digit);
+    //переменная вернула значение из функции 
+    printf("digit is : %u\n", digit);
+
+    printf("get_max_digit result %u\n", get_max_digit(digit));
+    printf("my_pow result %u\n", my_pow_u32(digit, 2));
+    printf("is_pow_of_3 %s\n", is_pow_of_3(digit) ? "YES" : "NO");
+    */
     printf("\n");
     return 0;
+}
+
+unsigned int get_uint(void)
+{
+    char string;
+    unsigned int number = 0;
+    while ((string = getchar()) != '\n') {
+        if (string >= '0' && string <= '9') {
+        //if (string == ('+' || '-' || '/' || '*'))
+        number *= 10;
+        number += string - '0';
+        }
+    }
+    printf("get_uint is : %u\n", number);
+    return number;
+}
+
+void remove_spaces(void)
+{
+    char c;
+
+    while ((c = getchar()) != '.')
+    {
+        if (c != ' ')
+        {
+            putchar(c);
+        }
+    }
 }
 
 float sum_of_dig(float sum)
@@ -99,14 +231,6 @@ float str_as_expr(float string)
         }
     printf("Result %d\n", num);
     return num;
-}
-
-char get_user_input(char string)
-{
-    printf("HomeWork #9\n");
-    scanf("%s", &string);
-    printf("usr_inpt : %s\n", &string);
-    return string;
 }
 
 
