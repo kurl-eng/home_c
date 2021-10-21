@@ -1,173 +1,87 @@
 #include <stdio.h>
+#include <string.h>
 
-void add();
-void sub();
-void mul();
-void div();
-void sqr();
-void prime_factorization();
-void factorial();
-void sel_func(int);
-
-int main(void)
+void print_operands(int *op, int N)
 {
-    int s;
-
-Input:
-    printf("Input a number [ +(1), -(2), *(3), /(4), ^(5), prime factorization(6), !(7)] : ");
-    scanf("%d", &s);
-
-    if (s > 7 | s < 1)
-    {
-        printf("Please input again\n");
-        goto Input;
+    for (int i = 0; i < N; i++) {
+        printf("%d ", op[i]);
     }
-    sel_func(s);
-
-    goto Input;
+    printf("\n");
 }
 
-void sel_func(int s)
+void print_operations(char *op, int N)
 {
-    void (*fptr)(void);
-    switch (s)
-    {
-    case 1:
-        fptr = add;
-        break;
-    case 2:
-        fptr = sub;
-        break;
-    case 3:
-        fptr = mul;
-        break;
-    case 4:
-        fptr = div;
-        break;
-    case 5:
-        fptr = sqr;
-        break;
-    case 6:
-        fptr = prime_factorization;
-        break;
-    case 7:
-        fptr = factorial;
-        break;
+    for (int i = 0; i < N; i++) {
+        printf("%c ", op[i]);
     }
-
-    fptr();
+    printf("\n");
 }
 
-void add()
+int main()
 {
-    int a, b;
+    // строка для примера
+    const char *string = "(100+200+300)/5";
 
-    printf("Input two numbers : ");
-    scanf("%d%d", &a, &b);
-    printf("Result = %d\n", a + b);
-}
+    // массив и счетчик операндов. Для примера, пусть будет максимум 100
+    int n_operands = 0;
+    int operands[100] = {0};
 
-void sub()
-{
-    int a, b;
+    // массив и счетчик операций. Для примера, пусть будет максимум 100
+    int n_operations = 0;
+    char operations[100] = {0};
 
-    printf("Input two numbers : ");
-    scanf("%d%d", &a, &b);
-    printf("Result = %d\n", a - b);
-}
-
-void mul()
-{
-    int a, b;
-
-    printf("Input two numbers : ");
-    scanf("%d%d", &a, &b);
-    printf("Result = %d\n", a * b);
-}
-
-void div()
-{
-    int a, b;
-
-    printf("Input two numbers : ");
-    scanf("%d%d", &a, &b);
-    printf("Result = %d\n", a / b);
-}
-
-void sqr()
-{
-    int exp, base, i;
-    int result = 1;
-
-    printf("Input base : ");
-    scanf("%d", &base);
-    printf("Input exp : ");
-    scanf("%d", &exp);
-
-    for (i = 0; i < exp; ++i)
-        result *= base;
-
-    printf("%d^%d = %d\n",
-           base, exp, result);
-}
-
-void prime_factorization()
-{
-    int n;
-    while (1)
-    {
-        printf("Input a number : ");
-        scanf("%d", &n);
-
-        if (n < 2)
-            return;
-    }
-
-    int p = 2;
-    int primes[20];
-    int index = 0;
-    int i;
-
-    while (1 != n)
-    {
-        if (0 == (n % p))
-        {
-            n = n / p;
-            primes[index] = p;
-            ++index;
-            p = 2;
+    for (int i = 0; i <= strlen(string); i++) {
+        char ch = string[i];
+        // формируем операнды
+        if (ch >= '0' && ch <= '9') {
+            operands[n_operands] *= 10;
+            operands[n_operands] += ch - '0';
         }
-        else
-        {
-            ++p;
+
+        // формируем операции
+        if (ch == '+' || ch == '-' || ch == '*' || ch == '/') {
+            n_operands++;
+            operations[n_operations] = ch;
+            n_operations++;
         }
     }
 
-    if (1 == index)
-    {
-        printf("Prime number\n");
-    }
-    else
-    {
-        for (i = 0; i < index - 1; ++i)
-            printf("%d*", primes[i]);
-
-        printf("%d\n", primes[i]);
+    // число операндов всегда должно быть на 1 больше чем операций
+    if (n_operations == n_operands) {
+        n_operands++;
     }
 
-    return;
-}
+    // выводим массивы из того, что получилось
+    print_operands(operands, n_operands);
+    print_operations(operations, n_operations);
 
-void factorial()
-{
-    int a, b;
-    int sum = 1;
+    //первый операнд участвует в операции в любом случае
+    int result = operands[0];
 
-    printf("Input a number : ");
-    scanf("%d", &b);
+    for (int i = 0; i < n_operations; i++) {
+        switch (operations[i]) {
+            case '+': {
+                result += operands[i + 1];
+            break;
+            }   
+            case '-': {
+            result -= operands[i + 1];
+            break;
+            }
+            case '*': {
+            result *= operands[i + 1];
+            break;
+            }
+            case '/': {
+            result /= operands[i + 1];
+            break;
+            }
+        }
+    }
 
-    for (a = 1; a <= b; ++a)
-        sum *= a;
+    printf("n_operations %d n_operands %d\n", n_operations, n_operands);
 
-    printf("%d!=%d\n", b, sum);
+    printf("result %d\n", result);
+
+    return 0;
 }
