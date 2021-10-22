@@ -3,35 +3,35 @@
 #include <string.h>
 
 /* даем ползовтелю инструкцию для ввода данных */
-//char input(char *string);
+char input(char *string);
 
 /* вывод массива чисел */
-void print_operands(int *op, int N)
+void print_operands(int *numbers, int number)
 {
-    for (int i = 0; i < N; i++)
+    for (int i = 0; i < number; i++)
     {
-        printf("%d ", op[i]);
+        printf("%d ", numbers[i]);
     }
     printf("\n");
 }
 
 /* вывод массива операций */
-void print_operations(char *op, int N)
+void print_operations(char *operations, int operation)
 {
-    for (int i = 0; i < N; i++)
+    for (int i = 0; i < operation; i++)
     {
-        printf("%c ", op[i]);
+        printf("%c ", operations[i]);
     }
     printf("\n");
 }
 
 /* вывод массива символов из строки */
-//char print_array(char string[], int range);
+char print_array(char string[], int range);
 
 void main(void)
 {
     // строка для примера
-    const char *string = "(100+200+300)/5";
+    //const char *string = "(100+200+300)/5";
 
     /* переменная длины массива, числа и операции */
     int range, number = 0, operation = 0;
@@ -40,13 +40,14 @@ void main(void)
     /* передаем строку в массив операций */
     int operations[100] = { 0 };
     /* передаем строку в перменную массива */
-    //char string[range];
+    char string[range];
     /* функция ввода выражения*/ 
-    //input(string);
+    input(string);
     /* передаем строку в переменную int
        функцией подсчета символов для
        определения длины масссива */
-    //range = strlen(string);
+    range = strlen(string);
+    //intermediate output
     //print_array(string, range);
     //printf("array[%s]\n", string);
 
@@ -107,25 +108,31 @@ void main(void)
         }
     }
     /* вовод */
-    printf("operaton %d number %d\n", operation, number);
+    printf("operaton : %d\nnumber : %d\n", operation, number);
     /* вывод результата вычисления */
-    printf("result %d\n", result);
+    printf("result = %d\n", result);
 
 }
 
-/*char print_array(char string[], int range)
+char print_array(char string[], int range)
 {
     for (int i = 0; i < range; i++) {
         printf("symbol of string array [%d] = %c\n", i, string[i]);
     }
-}*/
+}
 
-/*char input(char *string)
+char input(char *string)
 {
+    int count = 0;
+    char sign;
     printf("enter math expression to calculate it\n");
     printf("PLEASE USE CORRECT SYMBOLS (* / - +)\n");
     printf("without round brackets and spaces\n");
+    printf("work from left to right without priority if operands\n");
     printf("works with integers only : ");
     scanf("%s", string);
-    return *string;
-}*/
+    while ((sign = getchar()) != '\n') {
+        count++;
+    }
+    return count;
+}
