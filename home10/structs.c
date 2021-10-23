@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+//подключим библиотеку определения функций для реализации
+#include "structs.h"
+
+//чтение структуры массива измерений из файла
+int read_data_file(struct data *dataSet, const char *file)
+{
+    FILE *f;
+    int counter = 0;
+    f = fopen(file, "r");
+    if (!f) {
+        return -1;
+    }
+    while (!feof(f)) {
+        int scans = fscanf(f, "%d|%d|%d|%d", &dataSet[counter].day,
+                                             &dataSet[counter].month,
+                                             &dataSet[counter].year,
+                                             &dataSet[counter].temp
+                                             );
+        if (scans != 4) {
+            break;
+        }
+        counter++;
+    }
+    fclose(f);
+    return counter;
+}
+
+void print_data_file(struct data *dataSet, int range)
+{
+    for (int i = 0; i < range; i++) {
+        printf("Day:%d Month:%d Year:%D Temperature:%d\n", dataSet[i].day,
+                                                           dataSet[i].month,
+                                                           dataSet[i].year,
+                                                           dataSet[i].temp 
+                                                           );
+    }
+}
