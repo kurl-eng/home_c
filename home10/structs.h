@@ -2,8 +2,8 @@
 #ifndef STRUCTS_H
 #define STRUCTS_H
 
-//объявление структур данных файла
-struct data {
+//объявление структур данных
+struct data_set {
     int day;
     int month;
     int year;
@@ -11,9 +11,9 @@ struct data {
 };
 
 //чтение в структуру массива измерений из файла
-int read_data_file(struct data *dataSet, const char *file);
+int read_data_file(struct data_set *dataSet, const char *file);
 
 //вывод структуры массива
-void print_data_file(struct data *dataSet, int range);
+void print_data_file(struct data_set *dataSet, int range);
 
 #endif // !STRUCT_H

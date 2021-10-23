@@ -4,7 +4,7 @@
 #include "structs.h"
 
 //чтение структуры массива измерений из файла
-int read_data_file(struct data *dataSet, const char *file)
+int read_data_file(struct data_set *dataSet, const char *file)
 {
     FILE *f;
     int counter = 0;
@@ -27,10 +27,10 @@ int read_data_file(struct data *dataSet, const char *file)
     return counter;
 }
 
-void print_data_file(struct data *dataSet, int range)
+void print_data_file(struct data_set *dataSet, int range)
 {
     for (int i = 0; i < range; i++) {
-        printf("Day:%d Month:%d Year:%D Temperature:%d\n", dataSet[i].day,
+        printf("Day:%d Month:%d Year:%d Temperature:%d\n", dataSet[i].day,
                                                            dataSet[i].month,
                                                            dataSet[i].year,
                                                            dataSet[i].temp 

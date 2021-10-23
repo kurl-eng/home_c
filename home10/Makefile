@@ -1,6 +1,7 @@
 APPNAME = sensor
 
 SRCS += main.c
+SRCS += menu.c
 SRCS += structs.c
 SRCS += fileops.c
 
