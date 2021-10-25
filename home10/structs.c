@@ -3,8 +3,20 @@
 //подключим библиотеку определения функций для реализации
 #include "structs.h"
 
+void print_measure(struct data_set measure)
+{
+    printf("%ls|%ls|%ls|%ls", measure.day, measure.month, measure.year, measure.temp);
+}
+
+void print_measures(struct data_set *measure, int range)
+{
+    for (int i = 0; i < range; i++) {
+        print_measure(measure[i]);
+    }
+}
+
 //чтение структуры массива измерений из файла
-int read_data_file(struct data_set *dataSet, const char *file)
+/*int read_data_file(struct data_set *dataSet, const char *file)
 {
     FILE *f;
     int counter = 0;
@@ -25,9 +37,9 @@ int read_data_file(struct data_set *dataSet, const char *file)
     }
     fclose(f);
     return counter;
-}
+}*/
 
-void print_data_file(struct data_set *dataSet, int range)
+/*void print_data_file(struct data_set *dataSet, int range)
 {
     for (int i = 0; i < range; i++) {
         printf("Day:%d Month:%d Year:%d Temperature:%d\n", dataSet[i].day,
@@ -36,4 +48,4 @@ void print_data_file(struct data_set *dataSet, int range)
                                                            dataSet[i].temp 
                                                            );
     }
-}
+}*/

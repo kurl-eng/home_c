@@ -1,11 +1,18 @@
-//файл фунций вывода меню
 #include "menu.h"
 
 #include <stdio.h>
 
-void print_hello(const char *hi)
+//размер массива измерений
+int input_days(int *range)
 {
-    printf("Hello %s\n", hi);
+    printf("Введите количество дней\n");
+    scanf("%d", range);
+    return *range;
 }
 
-
+void print_days(const int *days)
+{
+    int print = *days;
+    printf("В течении %d дней:\n", print);
+    //return print;
+}

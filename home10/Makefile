@@ -1,6 +1,7 @@
 APPNAME = sensor
 
 SRCS += main.c
+SRCS += help.c
 SRCS += menu.c
 SRCS += structs.c
 SRCS += fileops.c
@@ -10,3 +11,7 @@ all:
 
 clean:
 	rm -f $(APPNAME)
+install:
+	cp $(APPNAME) /home/${usr}
+uninstall:
+	rm -f /home/${usr}

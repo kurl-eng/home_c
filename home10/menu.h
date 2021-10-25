@@ -2,8 +2,8 @@
 #ifndef MENU_H
 #define MENU_H
 
-void print_hello(const char *hi);
+int input_days(int *range);
 
-
+void print_days(const int *days);
 
 #endif
