@@ -1,6 +1,66 @@
 #include "fileops.h"
-
+#include "structs.h"
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+
+int write_data_file(struct data_set *dataSet, int range, const char *file)
+{
+    FILE *f;
+    f = fopen(file, "w+");
+    if (!f)
+    {
+        return -1;
+    }
+    for (int i = 0; i < range; i++)
+    {
+        fprintf(f, "|%d\t|%d\t|%d\t|%d\n",
+                dataSet[i].day,
+                dataSet[i].month,
+                dataSet[i].year,
+                dataSet[i].temp);
+    }
+    fclose(f);
+}
+
+int read_data_file(struct data_set *dataSet, const char *file)
+{
+    FILE *f;
+    int counter = 0;
+    f = fopen(file, "r");
+    if (!f)
+    {
+        return -1;
+    }
+    while (!feof(f))
+    {
+        int scans = fscanf(f, "|%d|%d|%d|%d",
+                           &dataSet[counter].day,
+                           &dataSet[counter].month,
+                           &dataSet[counter].year,
+                           &dataSet[counter].temp);
+        if (scans != 4)
+        {
+            break;
+        }
+        counter++;
+    }
+    fclose(f);
+    return counter;
+}
+
+void print_data_file(struct data_set *dataSet, int range)
+{
+    for (int i = 0; i < range; i++)
+    {
+        printf("Day: %d\t| Month: %d\t| Year: %d\t| Temperature: %d\n",
+               dataSet[i].day,
+               dataSet[i].month,
+               dataSet[i].year,
+               dataSet[i].temp);
+    }
+}
 
 /*        #include <stdio.h>
 

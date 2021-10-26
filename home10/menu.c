@@ -5,7 +5,7 @@
 //размер массива измерений
 int input_days(int *range)
 {
-    printf("Введите количество дней\n");
+    printf("Введите количество дней: ");
     scanf("%d", range);
     return *range;
 }
