@@ -1,0 +1,50 @@
+Всем привет!
+Домашнее задание:
+
+Доработать программу из Домашнего задания(вашего) 10 или 11.
+Опции командной строки теперь необходимо обрабатывать через getopt()
+По возможности использовать динамическую аллокацию памяти
+для массивов вместо статической(malloc/free)
+
+Для примера 10 ДЗ.
+Опция -f <filename> - имя файла для генерации
+Опция -n <count> - количество значений для генерации
+Опция -v - подробный вывод. Если эта опция присутствует,
+программа должна генерировать отладочные сообщения,
+если программа собрана с -DDEBUG
+
+Например, структура вида
+struct measurement {
+int day;
+int month;
+int year;
+int temp;
+};
+
+Пример макроса 
+(Можете определить свой с максимально удобным для вас видом)
+для вывода отладочных сообщений
+(Макрос должен быть объявлен после объявления структуры):
+
+define DBG(msg, m)
+printf("message %s: day %d month %d year %d temp %d\n,   
+                    msg, m.day, m.month, m.year, m.temp)
+
+кусок примера из l10-hometask
+
+struct measurement meas[31];//0-30
+for (int i = 0; i < 31; i++) {
+    fprintf(f, "%d;%d;%d;%d\n", 
+       meas[i].day,
+       meas[i].month,
+       meas[i].year,
+       meas[i].temp );
+    DBG("write into file", meas[i]);
+}
+
+В качестве примера можно смотреть
+l10-hometask и lesson12 на github и методичку с уроком
+github:
+https://github.com/008agent/c_basics_1648/tree/master/l10-hometask
+https://github.com/008agent/c_basics_1648/tree/master/l11-hometask
+https://github.com/008agent/c_basics_1648/blob/master/lesson12/main.c
