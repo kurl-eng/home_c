@@ -47,6 +47,7 @@ struct measurements {
     int temp;
 };
 
+
 int read_measurements_from_file(struct measurements *meas, const char *file);
 
 void print_measurements(struct measurements *meas, int N);

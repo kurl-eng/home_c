@@ -1,9 +1,9 @@
-APPNAME = lsdir
+APPNAME = copy
 
 SRCS += main.c
 SRCS += dirops.c
 
-all:
+all: 
 	gcc $(SRCS) -o $(APPNAME)
 
 clean:

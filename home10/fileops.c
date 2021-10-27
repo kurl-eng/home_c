@@ -8,7 +8,11 @@
 int write_data_file(struct data_set *dataSet, int range, const char *file)
 {
     FILE *f;
-    f = fopen(file, "w+");
+    //свойства функции зависят от значения второго аргумента
+    //для перезаписи w/w+
+    //для добавления в файл a/a+
+    //эмулятор генерирует но не записывает при r/r+
+    f = fopen(file, "w");
     if (!f)
     {
         return -1;

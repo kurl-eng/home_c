@@ -1,4 +1,3 @@
-
 APPNAME=main
 
 SCRS+= main.c
