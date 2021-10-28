@@ -1,7 +1,7 @@
 APPNAME = copy
 
 SRCS += main.c
-SRCS += dirops.c
+SRCS += fileops.c
 
 all: 
 	gcc $(SRCS) -o $(APPNAME)
