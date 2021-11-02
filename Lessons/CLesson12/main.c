@@ -82,14 +82,16 @@ int main(int argc, char **argv)
                 DBG("getopt found source file");
                 //printf("Found source option string %s optind %d optopt %d opterr %d\n",
                 //        optarg, optind, optopt, opterr);
-                f_src = argv[optind];
+                //f_src = argv[optind];
+                f_src = optarg;
                 break;
             }
             case 'd' : {
                 DBG("getopt found destination file");
                 //printf("Found destination option string %s optind %d optopt %d opterr %d\n",
                 //        optarg, optind, optopt, opterr);
-                f_dst = argv[optind];
+                //f_dst = argv[optind];
+                f_src = optarg;
                 break;
             }
             case 'h' : {
