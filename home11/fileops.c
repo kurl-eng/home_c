@@ -11,14 +11,17 @@ if (!f1 || !f2) {
     return -1;
 }
 while (1) {
-    size_t rd = fread(buffer, 1024, 1, f1);
-    size_t wr = fwrite(buffer, 1024, 1, f2);
+    size_t rd = fread(buffer, 1, 1024, f1);
+    //printf("rd %lu\n", rd);
+    size_t wr = fwrite(buffer, 1, rd, f2);
     if (rd != wr) {
-        printf("warning, copy file already exist\n");
+        printf("error data file\n");
+        return -1;
     }
     if (feof(f1))
         break;
 }
+printf("copy file: [%s] already exist\n", file2);
 free(buffer);
 fclose(f1);
 fclose(f2);

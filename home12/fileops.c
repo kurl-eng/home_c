@@ -25,14 +25,15 @@ char file_cp(const char *f_src, const char *f_dst)
     }
 
     while (1) {
-        size_t rd = fread(buffer, BUFFER, 1, fsrc);
-        size_t wr = fwrite(buffer, BUFFER, 1, fdst);
-
+        size_t rd = fread(buffer, 1, BUFFER, fsrc);
+        size_t wr = fwrite(buffer, 1, BUFFER, fdst);
         if (rd != wr) {
             printf("error data file\n");
-            //return -1;
+            return -1;
         }
-        if (feof(fsrc)) break;
+        if (feof(fsrc))
+            break;
+        printf("copy file: [%s] already exist\n", fdst);
     }
     free(buffer);
     fclose(fsrc);
