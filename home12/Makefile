@@ -2,7 +2,6 @@ APPNAME = copy
 
 SRCS += main.c
 SRCS += help.c
-SRCS += menu.c
 SRCS += fileops.c
 CFLAGS += -O0 -g
 

@@ -20,9 +20,9 @@ int my_max(int a, int b)
     return a < b ? b : a;
 }
 
+
 // (1)
 //#define DEBUG
-
 //проведем отладку методом трассировки
 #if defined DEBUG
 #define DBG(x) printf("%s func: %s: %d\n", x, __func__, __LINE__)
