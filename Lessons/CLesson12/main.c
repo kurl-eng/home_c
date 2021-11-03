@@ -8,9 +8,9 @@
 //#define DBG (n, x) printf("scans %d, %d%d%d%d\n", n, x.day, x.month, x.year, x.temp)
 
 #define BUFFER 1024
-//#define DBG(x) printf("debug %s\n", x)
+#define DBG(x) printf("debug %s\n", x)
 //рекурсивная замена макросов
-//#define DBG2 DBG
+#define DBG2 DBG
 //при использовании арифметических операций,
 //лучше очевидно обозначать последовательность скобками
 //#define MAX(a, b) ((a < b) ? b : a)

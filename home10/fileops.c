@@ -13,8 +13,7 @@ int write_data_file(struct data_set *dataSet, int range, const char *file)
     //для добавления в файл a/a+
     //эмулятор генерирует но не записывает при r/r+
     f = fopen(file, "w");
-    if (!f)
-    {
+    if (!f) {
         return -1;
     }
     for (int i = 0; i < range; i++)
