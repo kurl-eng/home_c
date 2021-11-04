@@ -30,6 +30,9 @@ int write_stat_file(struct calendar *statistic, int range, const char *file);
 int read_stat_file(struct calendar *statistic, const char *file);
 
 //вывод статистики в консоль
-void print_stat(struct calendar *statistic, int range);
+void print_year_stat(struct calendar *statistic, int range);
+
+//статистика за месяц
+void print_month(struct calendar *statistic, int range);
 
 #endif // !TEMP_FUNCTIONS_H

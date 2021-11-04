@@ -7,7 +7,7 @@ void sensor_emul(struct calendar *statistic, int range)
 {
     for (int i = 0; i < range; i++) {
         statistic[i].year = rand() % 1 + 2021;
-        statistic[i].month = rand() % 12;
+        statistic[i].month = rand() % 12 + 1;
         //statistic[i].week = rand() % 60 + 60;
         statistic[i].day = rand() % 30;
         statistic[i].hour = rand() % 24;
@@ -75,11 +75,14 @@ int read_stat_file(struct calendar *statistic, const char *file)
     return crnt;
 }
 
-void print_stat(struct calendar *statistic, int range)
+void print_year_stat(struct calendar *statistic, int range)
 {
+    int midtemp = 0;
+    int sumtemp = 0;
+    int maxtemp = statistic[0].temperature;
+    int mintemp = statistic[0].temperature;
     printf("YEAR\tMONTH\tDAY\tHOUR\tMINUTE\tTEMPERATURE\n");
-    for (int i = 0; i < range; i++)
-    {
+    for (int i = 0; i < range; i++) {
         printf("%4d;\t%2d;\t%2d;\t%2d;\t%2d;\t%2d\n",
                statistic[i].year,
                statistic[i].month,
@@ -87,5 +90,54 @@ void print_stat(struct calendar *statistic, int range)
                statistic[i].hour,
                statistic[i].minute,
                statistic[i].temperature);
+
+        sumtemp += statistic[i++].temperature;
+
+        if (statistic[i].temperature > maxtemp) {
+            maxtemp = statistic[i].temperature;
+        }
+
+        if (statistic[i].temperature < mintemp) {
+            mintemp = statistic[i].temperature;
+        }
     }
+
+    midtemp = sumtemp / range;
+
+    printf("Average temperature for the year : %d\n", midtemp);
+    printf("Max temperature for the year : %d\n", maxtemp);
+    printf("Min temperature for the year : %d\n", mintemp);
+}
+
+void print_month(struct calendar *statistic, int range)
+{
+    int midtemp = 0;
+    int sumtemp = 0;
+    int maxtemp = statistic[0].temperature;
+    int mintemp = statistic[0].temperature;
+
+    for (int i = 0; i < range; i++) {
+        printf("%2d;\t%2d;\t%2d;\t%2d;\t%2d\n",
+               statistic[i].month,
+               statistic[i].day,
+               statistic[i].hour,
+               statistic[i].minute,
+               statistic[i].temperature);
+
+        sumtemp += statistic[i++].temperature;
+
+        if (statistic[i].temperature > maxtemp) {
+            maxtemp = statistic[i].temperature;
+        }
+
+        if (statistic[i].temperature < mintemp) {
+            mintemp = statistic[i].temperature;
+        }
+    }
+
+    midtemp = sumtemp / range;
+
+    printf("Average temperature for the year : %d\n", midtemp);
+    printf("Max temperature for the year : %d\n", maxtemp);
+    printf("Min temperature for the year : %d\n", mintemp);
 }

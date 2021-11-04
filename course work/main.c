@@ -5,6 +5,7 @@
 #include "temp_functions.h"
 
 #define YEAR 365
+#define MONTH 30
 
 /* #define JANUARY 1
 #define FEBRUARY 2
@@ -48,12 +49,12 @@ int main(int argc, char **argv)
         */
         case 'f': {
             file_stat = optarg;
-            //оставляет ввод в консоль!? из за contine
+            //оставляет ввод в консоль!? из за continue
             //эта функция переписывает массив?
             read_stat_file(statistic, optarg);
             //эта функция же читает из массива эмудятора?
             //а не из файла
-            print_stat(statistic, YEAR);
+            print_year_stat(statistic, YEAR);
             return 0;
             break;
         }
@@ -67,6 +68,7 @@ int main(int argc, char **argv)
             • максимальная температура в текущем месяце
         */
         case 'm' : {
+            print_month(statistic, MONTH);
             break;
         }
         /*  -h Описание функционала приложения.
